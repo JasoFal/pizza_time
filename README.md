@@ -30,8 +30,12 @@ let pizza = new PizzaCreator("large", "pepperoni mushroom");
 pizza.calculateTotalPizzaPrice();
 Expected Output: 10.80
 
+Test: "Add price modifiers for pizza size large, medium, and small."
+Code:
+let pizza = new PizzaCreator("medium", "pepperoni mushroom");
+pizza.addPizzaSizePrice();
+Expected Output: 6
 
-Describe: ShoppingCart
 
 
 
