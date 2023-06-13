@@ -1,3 +1,43 @@
+# _{Application Name}_
+
+#### By _**Jason Falk**_
+
+#### _Fidgetech Independent for Javascript Objects_
+
+## Technologies Used
+
+* _Javascript_
+* _HTML_
+* _Bootstrap_
+* _Git/Git Bash_
+
+## Description
+
+_A fidgetech independent project created in order to demonstrate knowledge of Javascript objects. It's a pizza ordering website where you can select the size of the pizza and its toppings to determine a pizza price if you will._
+
+## Setup/Installation Requirements
+
+* _In Git Bash type git clone https://github.com/JasoFal/pizze_time.git_
+* _Either use Git Bash to reach the top level of the directory or open file explorer and find the directory._
+* _Open index.html in the browser of your choice using one of the following methods._
+------
+* _Use command start index.html if in Git Bash._
+* _In file explorer click on index.html._
+------
+* _Alternatively visit this *[link](https://jasofal.github.io/pizza_time/)* to view the website on gh-pages._
+
+## Known Bugs
+
+* _No known bugs._
+
+## License
+
+_MIT_
+
+Copyright (c) _6/13/23_ _Jason Falk_
+
+
+
 --------------------------
 Describe: PizzaCreator
 
@@ -36,18 +76,6 @@ let pizza = new PizzaCreator("medium", "pepperoni mushroom");
 pizza.addPizzaSizePrice();
 Expected Output: 6
 
-
-
-
-
-<!-- To Do List -->
-<!-- 
-  Create Pizza constructor
-  Create pizza topping objects/prototype (haven't decided whether to make it an object or as prototype)
-  Create prototype to calculate pizza price
-  Create UI
-  Create Shopping Cart
- -->
 
  <!-- Constructors and prototypes are used successfully.
 Application works as expected.
