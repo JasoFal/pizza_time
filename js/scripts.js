@@ -17,7 +17,7 @@ ShoppingCart.prototype.assignId = function() {
 
 ShoppingCart.prototype.locatePizza = function(id) {
   if (this.shopCart[id] != undefined) {
-    return this.contacts[id];
+    return this.shopCart[id];
   }
   return false;
 };
@@ -51,12 +51,26 @@ PizzaCreator.prototype.addPizzaSizePrice = function() {
 }
 
 PizzaCreator.prototype.calculateTotalPizzaPrice = function() {
-  this.pizzaPrice = Math.round(101 * this.pizzaPrice * 1.34) / 100;
+  this.pizzaPrice = "$" + Math.round(101 * this.pizzaPrice * 1.34) / 100;
 };
 
 // UI Logic
 
 const shoppingCart = new ShoppingCart();
+
+function displayPizzaList(shoppingCartToDisplay) {
+  let pizzaList = document.querySelector("div#pizza-list");
+  pizzaList.innerText = null;
+  const priceUl = document.createElement("ul");
+  Object.keys(shoppingCartToDisplay.shopCart).forEach(function(key) {
+    const pizzaList = shoppingCartToDisplay.locatePizza(key);
+    const priceLi = document.createElement("li");
+    priceLi.append("Pizza " + pizzaList.id + " " + pizzaList.pizzaPrice);
+    priceLi.setAttribute("id", pizzaList.id);
+    priceUl.append(priceLi);
+  });
+  pizzaList.append(priceUl);
+}
 
 function addToppings() {
   let toppingSelection = document.querySelectorAll('input[name="top"]:checked');
@@ -80,7 +94,8 @@ function createNewPizza(event) {
   newPizza.addPizzaSizePrice(); 
   newPizza.calculateTotalPizzaPrice();
   shoppingCart.addPizza(newPizza);
-  console.log(shoppingCart.shopCart);
+  console.log(newPizza);
+  displayPizzaList(shoppingCart);
 }
 
 window.addEventListener("load", function() {
