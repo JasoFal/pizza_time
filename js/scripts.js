@@ -51,6 +51,8 @@ PizzaCreator.prototype.addPizzaSizePrice = function() {
 }
 
 PizzaCreator.prototype.calculateTotalPizzaPrice = function() {
+  this.addPizzaSizePrice();
+  this.addToppingsPrice();
   this.pizzaPrice = "$" + Math.round(101 * this.pizzaPrice * 1.34) / 100;
 };
 
@@ -89,9 +91,7 @@ window.addEventListener("load", function() {
   const shoppingCart = new ShoppingCart();
   this.document.querySelector("form#pizza-creator").addEventListener("submit", (event) => {
     event.preventDefault();
-    let newPizza = new PizzaCreator(selectPizzaSize(), addToppings());
-    newPizza.addToppingsPrice();
-    newPizza.addPizzaSizePrice(); 
+    let newPizza = new PizzaCreator(selectPizzaSize(), addToppings()); 
     newPizza.calculateTotalPizzaPrice();
     shoppingCart.addPizza(newPizza);
     displayPizzaList(shoppingCart);});
