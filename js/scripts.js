@@ -56,8 +56,6 @@ PizzaCreator.prototype.calculateTotalPizzaPrice = function() {
 
 // UI Logic
 
-const shoppingCart = new ShoppingCart();
-
 function displayPizzaList(shoppingCartToDisplay) {
   let pizzaList = document.querySelector("div#pizza-list");
   pizzaList.innerText = null;
@@ -87,20 +85,14 @@ function selectPizzaSize() {
   return sizeSelection;
 }
 
-function createNewPizza(event) {
-  event.preventDefault();
-  let newPizza = new PizzaCreator(selectPizzaSize(), addToppings());
-  newPizza.addToppingsPrice();
-  newPizza.addPizzaSizePrice(); 
-  newPizza.calculateTotalPizzaPrice();
-  shoppingCart.addPizza(newPizza);
-  console.log(newPizza);
-  displayPizzaList(shoppingCart);
-}
-
 window.addEventListener("load", function() {
-  this.document.querySelector("form#pizza-creator").addEventListener("submit", createNewPizza);
+  const shoppingCart = new ShoppingCart();
+  this.document.querySelector("form#pizza-creator").addEventListener("submit", (event) => {
+    event.preventDefault();
+    let newPizza = new PizzaCreator(selectPizzaSize(), addToppings());
+    newPizza.addToppingsPrice();
+    newPizza.addPizzaSizePrice(); 
+    newPizza.calculateTotalPizzaPrice();
+    shoppingCart.addPizza(newPizza);
+    displayPizzaList(shoppingCart);});
 });
-
-
-
